@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Netflix IMDb Ratings",
+  "version": "1.0",
+  "description": "Shows IMDb ratings on Netflix titles.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://www.omdbapi.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.netflix.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "all_frames": true
+    }
+  ]
+}
+
