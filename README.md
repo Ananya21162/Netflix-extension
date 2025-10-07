@@ -11,9 +11,16 @@ This Chrome extension enhances the Netflix browsing experience by displaying IMD
 
 🎨 UI Overlay: Adds a small, non-intrusive rating badge in the corner of each thumbnail (⭐ 7.8).
 
++
 🧠 Error Handling: Gracefully handles titles not found on IMDb or network/API issues.
-# Adding extension to Chrome #
+# Adding extension to Chrome: #
 1. Open Chrome and navigate to : chrome://extensions/
 2. Enable "Developer mode": using the toggle in the top right corner.
 3. Click "Load unpacked": and select the folder containing the extension's code.
-Extension will now be available to use
+Extension will now be available to use.
+
+# How it works : #
+1. The mainfest.json file tells the browser to inject "content.json" into every Netflix page (https://*.netflix.com/*).
+2. Then, we extract movie/show title from netflix UI using aria-label attribute of HTML tag
+3. We use the fetched title and call OMDB API which return the ratings for the given title.
+4. After getting the ratings, we display them back on the movie thumbnail
